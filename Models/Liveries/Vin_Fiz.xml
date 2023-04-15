@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Vin Fiz</name>
+        <Wings>Liveries/Vin_Fiz/wings2.png</Wings>
+        <Struts_Gear>Liveries/Vin_Fiz/struts_gear.png</Struts_Gear>
+        <Struts_Wings>Liveries/Vin_Fiz/struts_wings.png</Struts_Wings>
+        <Verticals>Liveries/Vin_Fiz/verticals.png</Verticals>
+      </livery>
+    </model>
+  </sim>
+
+</PropertyList>

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>WrightEX-1911.ac</path>
+
+  <offsets>
+     <!-- Pitch the airplane to put the tailskid on the ground -->
+     <pitch-deg>0.0</pitch-deg>
+     <z-m>0.15</z-m>
+  </offsets>
+
+  <!-- Don't bother casting shadows for small or transparent objects -->
+  <animation>
+    <type>noshadow</type>
+    <object-name>prop_disc_l</object-name>
+    <object-name>prop_disc_r</object-name>
+    <object-name>prop_l</object-name>
+    <object-name>prop_r</object-name>
+    <object-name>rigging</object-name>
+  </animation>
+
+  <!-- Pilot Model-->
+  <model>
+    <name>Pilot</name>
+    <path>Aircraft/WrightEX-1911/Models/early_pilot/early_pilot.xml</path>
+    <offsets>
+      <x-m> -0.165 </x-m>
+      <y-m> -0.270 </y-m>
+      <z-m> -0.639 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Still need to investigate Nasal functions -->
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/WrightEX-1911/Models/Liveries", 30);
+      var self = cmdarg();
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+    </load>
+
+    <unload>
+      livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
+    </unload>
+  </nasal>
+
+  <!-- Livery Selection, note that multiple objects can share texture using the material tag -->
+  <animation>
+    <type>material</type>
+    <object-name>wing_top</object-name>
+    <object-name>wing_bottom</object-name>
+    <object-name>elevator_fore</object-name>
+    <object-name>elevator_aft</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>Wings</texture-prop>
+    <texture>wings2.png</texture>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>struts_wing</object-name>
+    <object-name>prop_support_r</object-name>
+    <object-name>prop_support_l</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>Struts_Wings</texture-prop>
+    <texture>struts_wings.png</texture>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>struts_gear</object-name>
+    <object-name>empanage</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>Struts_Gear</texture-prop>
+    <texture>struts_gear.png</texture>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>skid_stab</object-name>
+    <object-name>rudder</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>Verticals</texture-prop>
+    <texture>verticals.png</texture>
+  </animation>
+  <!-- End of Livery Selection -->
+
+  <!-- Cranking effects, slightly modified from Berenger's Antoinette -->
+  <model>
+    <path>Aircraft/WrightEX-1911/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m>  0.77401 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m>  0.00000 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/WrightEX-1911/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m>  0.54401 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m>  0.00000 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/WrightEX-1911/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m>  0.31401 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m>  0.00000 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/WrightEX-1911/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m>  0.08401 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m>  0.00000 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Ground Effects -->
+  <!-- Patte avant -->
+  <model>
+    <path>Aircraft/WrightEX-1911/Models/Effects/ground/ground0.xml</path>   
+    <offsets>
+      <x-m> -0.449 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.471 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Roue gauche -->
+  <model>
+    <path>Aircraft/WrightEX-1911/Models/Effects/ground/ground1.xml</path>
+    <offsets>
+      <x-m>  2.088 </x-m>
+      <y-m> -0.651 </y-m>
+      <z-m> -1.639 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Roue droite -->
+  <model>
+    <path>Aircraft/WrightEX-1911/Models/Effects/ground/ground2.xml</path>
+    <offsets>
+      <x-m>  2.088 </x-m>
+      <y-m>  0.651 </y-m>
+      <z-m> -1.639 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Patte arrière -->
+  <model>
+    <path>Aircraft/WrightEX-1911/Models/Effects/ground/ground3.xml</path>   
+    <offsets>
+      <x-m>  0.029 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.617 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Prop and prop disc animations-->
+  <!-- animation>
+    <type>blend</type>
+    <object-name>prop_disc_l</object-name>
+    <object-name>prop_disc_r</object-name>
+    <property alias="/params/engine/rpm"/>
+    <factor>0.0004</factor>
+    <max>0.5</max>
+    <min>0.0</min>
+  </animation -->
+
+  <!--animation> 
+	<type>material</type> 
+	<object-name>prop_l</object-name>
+	<object-name>prop_r</object-name>
+	 <transparency>
+		<property>engines/engine[0]/rpm</property>
+        <factor>-0.0015</factor>
+        <offset>1</offset>
+	</transparency>
+	</animation -->
+
+  <!--animation>
+  <type>blend</type>
+		<object-name>prop_l</object-name>
+		<object-name>prop_r</object-name>
+  <property>engines/engine[0]/rpm</property>
+  <factor>0.00025</factor>
+  <min>0.2</min>
+  <max>0.7</max>
+ </animation-->
+
+  <animation> 
+    <type>material</type> 
+    <object-name>prop_l</object-name>
+    <object-name>prop_r</object-name>
+    <transparency>
+       <alpha-prop>engines/engine[0]/rpm</alpha-prop>
+       <factor>-0.003</factor>
+       <offset>1</offset>
+    </transparency> 
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>prop_l</object-name>
+    <object-name>prop_r</object-name>
+    <condition>
+      <less-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>320</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <name>Prop_L_Complete</name>
+    <object-name>prop_disc_l</object-name>
+    <object-name>prop_l</object-name>
+  </animation>
+
+  <animation>
+    <name>Prop_R_Complete</name>
+    <object-name>prop_disc_r</object-name>
+    <object-name>prop_r</object-name>
+  </animation>
+
+<!--animation> 
+  <type>material</type> 
+  <object-name>prop_disc_l</object-name>
+  <object-name>prop_disc_r</object-name>
+    <transparency>
+       <alpha-prop>engines/engine[0]/rpm</alpha-prop>
+       <factor>-0.0007</factor>
+       <offset>1</offset>
+    </transparency> 
+</animation-->
+
+  <!-- Select objects that become visible with engine rpm -->
+  <animation>
+    <type>select</type>
+    <object-name>prop_disc_l</object-name>
+    <object-name>prop_disc_r</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>250</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <!-- Prop Spins -->
+  <animation>
+    <type>spin</type>
+    <object-name>Prop_L_Complete</object-name>
+    <property>engines/engine[0]/rpm</property>
+    <factor> 1 </factor>
+    <center>
+      <x-m> 1.617175 </x-m>
+      <y-m> -1.682981 </y-m>
+      <z-m> 0.000000 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value> 5 </value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>Prop_R_Complete</object-name>
+    <property>engines/engine[0]/rpm</property>
+    <factor> 1 </factor>
+    <center>
+      <x-m> 1.617175 </x-m>
+      <y-m> 1.682981 </y-m>
+      <z-m> 0.000000 </z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value> 5 </value>
+      </greater-than>
+    </condition>
+  </animation>
+
+
+  <!-- Wheel Spins -->
+  <animation>
+    <type>spin</type>
+    <object-name>wheels</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m> -0.0321 </x-m>
+      <y-m> -0.744151 </y-m>
+      <z-m> -1.413938 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <!-- Elevator movement, remember there are two halves to represent warp movement -->
+  <animation>
+    <type>rotate</type>
+    <object-name>elevator_aft</object-name>
+    <object-name>elevator_fore</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor> 20 </factor>
+    <center>
+      <x-m>  5.345745 </x-m>
+      <y-m>  0.001525 </y-m>
+      <z-m> -0.080838 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>elevator_aft</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor> 20 </factor>
+    <center>
+      <x-m>  5.709100 </x-m>
+      <y-m>  0.001525 </y-m>
+      <z-m> -0.080838 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+
+  <!-- Rudder Movement -->
+  <animation>
+    <type>rotate</type>
+    <object-name>rudder</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> 20 </factor>
+    <center>
+      <x-m>  4.830 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.424 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Aileron Movement, no ailerons in this wing-warping plane but we can rotate the control sticks instead -->
+  <animation>
+    <type>rotate</type>
+    <object-name>stick_l</object-name>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <factor> 6 </factor>
+    <center>
+      <x-m> -0.408617 </x-m>
+      <y-m>  0.448754 </y-m>
+      <z-m> -0.704166 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>stick_r</object-name>
+    <property>surface-positions/right-aileron-pos-norm</property>
+    <factor> 6 </factor>
+    <center>
+      <x-m> -0.408617 </x-m>
+      <y-m> -0.448754 </y-m>
+      <z-m> -0.704166 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList include="WrightEX-1911-base.xml">
+
+  <sim>
+    <description>WrightEX-1911 (YASim)</description>
+    <author>Jeffery S. Koppe (3D/FDM)</author>
+    <flight-model archive="y">yasim</flight-model>
+    <aero archive="y">WrightEX-1911-yasim</aero>
+  </sim>
+
+</PropertyList>

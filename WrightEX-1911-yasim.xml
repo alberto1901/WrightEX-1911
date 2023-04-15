@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Wright EX
+                  : 2022 Jeffery S. Koppe
+
+     Source       : https://en.wikipedia.org/wiki/Vin_Fiz_Flyer
+    Data from NASA
+    General characteristics
+        Crew: 1
+        Length: 21 ft (6.4 m)
+        Wingspan: 32 ft (9.8 m)
+        Height: 7 ft (2.1 m)
+        Gross weight: 903 lb (410 kg)
+        Powerplant: 1 × Wright Aero Four cylinder four cycle, 35 hp (26 kW)
+        Propellers: 2-bladed
+        Performance - Cruise speed: 44 kn (51 mph, 82 km/h) average groundspeed
+
+    SMITHSONIAN:
+        Wingspan: 9.6 m (31 ft 6 in)
+        Length: 6.5 m (21 ft 5 in)
+        Height: 2.2 m (7 ft 4 in)
+        Weight, empty: 408 kg (900 lb)
+        Engine: Wright vertical 440 4-cylinder, 35 hp
+
+    WRIGHT BROTHERS.ORG (https://www.wright-brothers.org/Information_Desk/Just_the_Facts/Airplanes/Model_EX.htm)
+    Wright Model EX specifications:
+        Wingspan: 31.5 ft (11.9 m)
+        Chord: 5 ft (152 cm)
+        Separation: 3.5 ft (107 cm)
+        Wing Area: 310 sq ft (28.8sq. m)
+        Camber: 1:20
+        Horizontal Rear Elevator: 30 sq ft (2.8 sq m)
+        Twin Movable Vertical Rudders: 10.2 sq ft (0.9 sq m)
+        Overall Length: 21.5 ft (6.5 m)
+        Total Weight: 735 lbs (333 kg) without pilot or passenger
+        Enging: Wright 440, 4 cylinder engine, 35 hp (approx.) running at 1500 rpm, weight 160 lbs dry
+        Propellers: Two contra-rotating propellers, 8.5 ft (259 cm) long, turning at 450 to 470 rpm
+        Average Speed: 55 mph (89 kph)
+-->
+
+<airplane mass="735" >
+
+  <approach speed="20" aoa="7" fuel="0.3">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.65"/>
+  </approach>
+  
+  <cruise speed="55" alt="5000" fuel="0.7" >
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1" />
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.65" />
+  </cruise>
+
+  <cockpit x="0.272" y="0.00" z="0.1"/>
+
+  <ballast x="0.272" y="0.00" z="-0.60" mass="200"/>
+
+  <!-- ballast x="-5.00" y="0.00" z="-0.60" mass="112"/ -->
+
+  <!--The four stringers supporting the empannage -->>
+  <fuselage ax="-0.468" ay=" 0.250" az=" 0.50" bx="-5.115" by=" 0.250" bz=" 0.50" width="0.1" taper="1.0" midpoint="0"/>
+  <fuselage ax="-0.468" ay=" 0.250" az=" -0.70" bx="-5.115" by=" 0.250" bz="-0.70" width="0.1" taper="1.0" midpoint="0"/>
+  <fuselage ax="-0.468" ay="-0.250" az=" 0.50" bx="-5.115" by="-0.250" bz=" 0.50" width="0.1" taper="1.0" midpoint="0"/>
+  <fuselage ax="-0.468" ay="-0.250" az=" -0.70" bx="-5.115" by="-0.250" bz="-0.70" width="0.1" taper="1.0" midpoint="0"/>
+
+
+  <!-- Wing upper -->
+  <wing x="-0.380239" y="0.000000" z="0.601439" 
+        chord="1.65227" 
+        length="4.9" 
+        taper="1"
+        dihedral="0" 
+        camber="0.05">
+        <stall aoa="24" width="1" peak="1.5"/>
+        <flap1 start="0.70" end="1" lift="1.2" drag="1.1"/>
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+  </wing>
+
+  <!-- Wing lower -->
+  <mstab x="-0.380239" y="0.000000" z="-0.655439" 
+        chord="1.65227" 
+        length="4.9"
+        taper="1"
+        dihedral="0" 
+        camber="0.05">
+        <stall aoa="24" width="1" peak="1.5"/>
+        <flap1 start="0.70" end="1" lift="1.2" drag="1.1"/>
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+
+  </mstab>
+
+  <!-- Horizontal Stabilizer-->
+  <hstab x="-5.345745" y="0.00000" z="-0.062055" 
+         chord="0.726738" 
+         length="2.34145" 
+         taper="1"> 
+         <stall aoa="22" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.5" drag="1.2"/>
+         <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <!-- Two Vertical Stabilizers-->
+  <vstab x="-4.872558" y="0.189901" z="-0.732776" 
+         chord="0.39139" 
+         length="1.189694" 
+         taper="1">
+         <stall aoa="20" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.5" drag="1.2"/>
+         <control-input axis="/controls/flight/rudder" square="true" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+
+  <vstab x="-4.872558" y="-0.189901" z="-0.732776" 
+         chord="0.39139" 
+         length="1.189694" 
+         taper="1">
+         <stall aoa="20" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.5" drag="1.2"/>
+         <control-input axis="/controls/flight/rudder" square="true" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+  <!-- wing stabilizers -->
+  <vstab x="0.170" y="-1.6573" z="0.071" 
+         chord="0.530885" 
+         length="0.530885" 
+         taper="1">
+         <stall aoa="20" width="1" peak="1.5"/>
+  </vstab>
+  <vstab x="0.170" y="1.6573" z="0.071" 
+         chord="0.530885" 
+         length="0.530885" 
+         taper="1">
+         <stall aoa="20" width="1" peak="1.5"/>
+  </vstab>
+
+  <!--forward landing gear stabilizers -->
+  <vstab x="1.468" y=" 0.250" z="-1.439"
+         chord="0.430885" 
+         length="0.9" 
+         taper="0.0">
+         <stall aoa="20" width="1" peak="1.5"/>
+  </vstab>
+  <vstab x="1.468" y="-0.250" z="-1.439"
+         chord="0.430885" 
+         length="0.9" 
+         taper="0.0">
+         <stall aoa="20" width="1" peak="1.5"/>
+  </vstab>
+
+
+  <!--
+    Wright 440, 4 cylinder engine, 28 - 40 hp (approx.) running at 1500 rpm
+    Cylinders: 4
+    Bore: 4-3/8 in (11.1 cm)
+    Stroke: 4 in (10.2 cm)
+    Displacement: 240 in3 (3.9 l3)
+    Horsepower: 28 to 40
+    Ignition: Spark plugs powered by high-tension Mea or Bosch magneto.
+    Weight: 160 lbs (72.6 kg) dry
+    Unique features: Compression release, fuel injection, auxiliary exhaust ports in cylinders
+
+    Two contra-rotating propellers, 8.5 ft (259 cm) long, turning at 450 to 470 rpm
+    55 mph (89 kph) average speed
+  -->
+  <propeller x="0.272" y="0.00" z="-0.60"
+             radius="1.295"
+             mass="132.2"       
+             moment="4"
+             cruise-power="45"
+             cruise-alt="5000" 
+             cruise-speed="60"
+             cruise-rpm="1100"
+             takeoff-power="40"
+             takeoff-rpm="500">
+             <actionpt x="-1.5" y="1.65" z="0"/>
+             <piston-engine eng-rpm="1500" 
+                            alt="5000" 
+                            eng-power="20"
+                            displacement="120"/>
+             <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
+             <control-input control="STARTER"  axis="/controls/engines/engine[0]/starter"/>
+             <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
+             <control-input control="MIXTURE"  axis="/controls/engines/engine[0]/mixture"/>
+  </propeller>
+  <propeller x="0.272" y="0.00" z="-0.60"
+             radius="1.295"
+             mass="132.2"       
+             moment="4"
+             contra="1"
+             cruise-power="45"
+             cruise-alt="5000" 
+             cruise-speed="60"
+             cruise-rpm="1100"
+             takeoff-power="40"
+             takeoff-rpm="500">
+             <actionpt x="-1.5" y="-1.65" z="0"/>
+             <piston-engine eng-rpm="1500" 
+                            alt="5000" 
+                            eng-power="20"
+                            displacement="120"/>
+             <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
+             <control-input control="STARTER"  axis="/controls/engines/engine[0]/starter"/>
+             <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
+             <control-input control="MIXTURE"  axis="/controls/engines/engine[0]/mixture"/>
+  </propeller>
+
+
+
+  <!-- Left wheel -->
+  <gear x="0.5" y="0.651" z="-1.639" 
+        sfric="1.1"
+        dfric="0.6"
+        compression="0.02">
+  </gear>
+
+  <!-- Right wheel -->
+  <gear x="0.5" y="-0.651" z="-1.639" 
+        sfric="1.1"
+        dfric="0.6"
+        compression="0.02">
+  </gear>
+
+  <!-- Tail wheel -->
+  <gear x="-5.29899" y="0" z="-0.935" 
+        sfric="1.1"
+        dfric="0.6"
+        compression="0.02">
+  </gear>
+
+  <!-- Fuel: Forward 142 lbs -->
+  <tank x="0.0" y="0" z="0.3" capacity="160"/>
+  
+</airplane>

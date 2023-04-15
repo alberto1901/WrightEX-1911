@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Default</name>
+        <Wings>Liveries/Default/wings2.png</Wings>
+        <Struts_Gear>Liveries/Default/struts_gear.png</Struts_Gear>
+        <Struts_Wings>Liveries/Default/struts_wings.png</Struts_Wings>
+        <Verticals>Liveries/Default/verticals.png</Verticals>
+      </livery>
+    </model>
+  </sim>
+
+</PropertyList>
